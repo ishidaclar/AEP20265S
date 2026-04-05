@@ -2,10 +2,19 @@ public class Solicitacoes {
 
     private int id;
     private String categoria;
-    private String dewscricao;
+    private String descricao;
     private String localizacao;
-    private boolean anonimoOuNão;
+    private boolean anonimoOuNao;
     private String status;
+
+    public Solicitacoes(int id, String categoria, String descricao, String localizacao, boolean anonimoOuNao, String status) {
+        this.id = id;
+        this.categoria = categoria;
+        this.descricao = descricao;
+        this.localizacao = localizacao;
+        this.anonimoOuNao = anonimoOuNao;
+        this.status = status;
+    }
 
     public int getId() {
         return id;
@@ -23,12 +32,12 @@ public class Solicitacoes {
         this.categoria = categoria;
     }
 
-    public String getDewscricao() {
-        return dewscricao;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setDewscricao(String dewscricao) {
-        this.dewscricao = dewscricao;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public String getLocalizacao() {
@@ -39,12 +48,12 @@ public class Solicitacoes {
         this.localizacao = localizacao;
     }
 
-    public boolean isAnonimoOuNão() {
-        return anonimoOuNão;
+    public boolean isAnonimoOuNao() {
+        return anonimoOuNao;
     }
 
-    public void setAnonimoOuNão(boolean anonimoOuNão) {
-        this.anonimoOuNão = anonimoOuNão;
+    public void setAnonimoOuNao(boolean anonimoOuNao) {
+        this.anonimoOuNao = anonimoOuNao;
     }
 
     public String getStatus() {
