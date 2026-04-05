@@ -6,8 +6,8 @@ public class Usuário {
     private String cpf;
     private String numeroCelular;
     private int idade;
-    Solicitacoes solicitacao;
-    Scanner scanner = new Scanner(System.in);
+    private Solicitacoes solicitacao;
+    private Scanner scanner = new Scanner(System.in);
 
     public Usuário(String nome, String cpf, String numeroCelular, int idade, Solicitacoes solicitacao) {
         this.nome = nome;
@@ -69,8 +69,6 @@ public class Usuário {
             return;
         }
 
-            String localizacaoResposta;
-            String descricaoSolicitacaoResposta;
             System.out.println("Qual a categoria da solicitação");
             System.out.println("1-Saúde");
             System.out.println("2-Educação");
@@ -108,7 +106,16 @@ public class Usuário {
         solicitacao.setLocalizacao(scanner.nextLine());
         System.out.println("Qual a descrição da solicitação?");
         solicitacao.setDescricao(scanner.nextLine());
-
-        solicitacao.setStatus("Solicitacao criada");
+        solicitacao.setStatus("Solicitação criada");
     }
+
+    public void receberStatusSolicitacao(Solicitacoes solicitacao){
+        System.out.println("Descriçao" + solicitacao.getDescricao());
+        System.out.println("Status: " + solicitacao.getStatus());
+    }
+
+    public void receberRetornoSolicitacao (Solicitacoes solicitacao){
+        System.out.println("Retorno" + solicitacao.getRetorno());
+    }
+
 }

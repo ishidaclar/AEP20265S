@@ -6,6 +6,7 @@ public class Solicitacoes {
     private String localizacao;
     private boolean anonimoOuNao;
     private String status;
+    private String retorno;
 
     public Solicitacoes(int id, String categoria, String descricao, String localizacao, boolean anonimoOuNao, String status) {
         this.id = id;
@@ -62,5 +63,13 @@ public class Solicitacoes {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getRetorno() {
+        return retorno;
+    }
+
+    public void setRetorno(String retorno) {
+        this.retorno = retorno;
     }
 }
