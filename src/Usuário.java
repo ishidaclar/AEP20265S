@@ -110,7 +110,7 @@ public class Usuário {
     }
 
     public void receberStatusSolicitacao(Solicitacoes solicitacao){
-        System.out.println("Descriçao" + solicitacao.getDescricao());
+        System.out.println("Descrição" + solicitacao.getDescricao());
         System.out.println("Status: " + solicitacao.getStatus());
     }
 
