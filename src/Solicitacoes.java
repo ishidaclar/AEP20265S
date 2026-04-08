@@ -14,12 +14,12 @@ public class Solicitacoes {
     private String retorno;
     private static int contador=1;
 
-    public Solicitacoes(String categoria, String descricao, String localizacao, String status) {
+    public Solicitacoes(String categoria, String descricao, String localizacao) {
         this.id = contador++;
         this.categoria = categoria;
         this.descricao = descricao;
         this.localizacao = localizacao;
-        this.status = status;
+        this.status = ABERTO;
     }
 
     public int getId() {

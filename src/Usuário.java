@@ -9,12 +9,11 @@ public class Usuário {
     private Solicitacoes solicitacao;
     private Scanner scanner = new Scanner(System.in);
 
-    public Usuário(String nome, String cpf, String numeroCelular, int idade, Solicitacoes solicitacao) {
+    public Usuário(String nome, String cpf, String numeroCelular, int idade) {
         this.nome = nome;
         this.cpf = cpf;
         this.numeroCelular = numeroCelular;
         this.idade = idade;
-        this.solicitacao = solicitacao;
     }
 
     public String getNome() {
@@ -49,78 +48,75 @@ public class Usuário {
         this.idade = idade;
     }
 
-    public void registrarSolicitacao(){
+    public Solicitacoes getSolicitacao() {
+        return solicitacao;
+    }
+
+    public void registrarSolicitacao() {
+
         System.out.println("----------------EMERGENCIA----------------");
-        System.out.println("Bem vindo(a) ao registro de solicitaçoes. Você gostaria de:");
+        System.out.println("Bem vindo(a) a registrar uma solicitação, você gostaria de:");
         System.out.println("1- Ser anônimo");
         System.out.println("2- Se identificar");
         System.out.println("----------------EMERGENCIA----------------");
+
         int respostaIdentificar = scanner.nextInt();
         scanner.nextLine();
-        if (respostaIdentificar ==1) {
-            nome = "Anonimo";
-            cpf = "Anonimo";
-            numeroCelular = "Anonimo";
-            idade = 0;
-            solicitacao.setAnonimoOuNao(true);
-        } else if (respostaIdentificar ==2){
-            solicitacao.setAnonimoOuNao(false);
+        boolean anonimo = false;
+
+        if (respostaIdentificar == 1) {
+            anonimo = true;
+        } else if (respostaIdentificar == 2) {
+            anonimo = false;
         } else {
             System.out.println("Alternativa inválida");
             return;
         }
 
-            System.out.println("Qual a categoria da solicitação");
-            System.out.println("1-Saúde");
-            System.out.println("2-Educação");
-            System.out.println("3-Limpeza");
-            System.out.println("4-Buracos");
-            System.out.println("5-Iluminação");
-            System.out.println("6-Segurança escolar");
-            int respostaCategoria = scanner.nextInt();
-            scanner.nextLine();
-            switch (respostaCategoria) {
-                case 1:
-                    solicitacao.setCategoria("Saúde");
-                    break;
-                case 2:
-                    solicitacao.setCategoria("Educação");
-                    break;
-                case 3:
-                    solicitacao.setCategoria("Limpeza");
-                    break;
-                case 4:
-                    solicitacao.setCategoria("Buracos");
-                    break;
-                case 5:
-                    solicitacao.setCategoria("Iluminação");
-                    break;
-                case 6:
-                    solicitacao.setCategoria("Segurança escolar");
-                    break;
-                default:
-                    System.out.println("Opção inválida");
-                    return;
-            }
+        String categoria = "";
 
-        System.out.println("Digite sua localização (Ou aguarde GPS...)");
-        String localizacao = (scanner.nextLine());
-        solicitacao.setLocalizacao(localizacao);
+        System.out.println("Qual a categoria da solicitação");
+        System.out.println("1-Saúde");
+        System.out.println("2-Educação");
+        System.out.println("3-Limpeza");
+        System.out.println("4-Buracos");
+        System.out.println("5-Iluminação");
+        System.out.println("6-Segurança escolar");
+
+        int respostaCategoria = scanner.nextInt();
+        scanner.nextLine();
+
+        switch (respostaCategoria) {
+            case 1:
+                categoria = "Saúde";
+                break;
+            case 2:
+                categoria = "Educação";
+                break;
+            case 3:
+                categoria = "Limpeza";
+                break;
+            case 4:
+                categoria = "Buracos";
+                break;
+            case 5:
+                categoria = "Iluminação";
+                break;
+            case 6:
+                categoria = "Segurança escolar";
+                break;
+            default:
+                System.out.println("Opção inválida");
+                return;
+        }
+
+        System.out.println("Digite sua localização: (Ou espere o GPS...)");
+        String localizacao = scanner.nextLine();
         System.out.println("Qual a descrição da solicitação?");
-        solicitacao.setDescricao(scanner.nextLine());
+        String descricao = scanner.nextLine();
+        solicitacao = new Solicitacoes(categoria, descricao, localizacao);
+        solicitacao.setAnonimoOuNao(anonimo);
         solicitacao.setStatus("Solicitação criada");
     }
-
-    public void receberStatusSolicitacao(Solicitacoes solicitacao){
-        System.out.println("----------------STATUS----------------");
-        System.out.println("Categoria : " + solicitacao.getCategoria());
-        System.out.println("Descrição : " + solicitacao.getDescricao());
-        System.out.println("Status: " + solicitacao.getStatus());
-        System.out.println("----------------STATUS----------------");
-    }
-
-    public void receberRetornoSolicitacao (Solicitacoes solicitacao){
-        System.out.println("Retorno " + solicitacao.getRetorno());
-    }
-
 }
+
