@@ -72,4 +72,6 @@ public class Solicitacoes {
     public void setRetorno(String retorno) {
         this.retorno = retorno;
     }
+
+
 }

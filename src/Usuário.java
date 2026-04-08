@@ -50,10 +50,11 @@ public class Usuário {
     }
 
     public void registrarSolicitacao(){
-
+        System.out.println("----------------EMERGENCIA----------------");
         System.out.println("Bem vindo(a) ao registro de solicitaçoes. Você gostaria de:");
         System.out.println("1- Ser anônimo");
         System.out.println("2- Se identificar");
+        System.out.println("----------------EMERGENCIA----------------");
         int respostaIdentificar = scanner.nextInt();
         scanner.nextLine();
         if (respostaIdentificar ==1) {
@@ -102,20 +103,24 @@ public class Usuário {
                     return;
             }
 
-        System.out.println("Qual a localização?");
-        solicitacao.setLocalizacao(scanner.nextLine());
+        System.out.println("Digite sua localização (Ou aguarde GPS...)");
+        String localizacao = (scanner.nextLine());
+        solicitacao.setLocalizacao(localizacao);
         System.out.println("Qual a descrição da solicitação?");
         solicitacao.setDescricao(scanner.nextLine());
         solicitacao.setStatus("Solicitação criada");
     }
 
     public void receberStatusSolicitacao(Solicitacoes solicitacao){
-        System.out.println("Descrição" + solicitacao.getDescricao());
+        System.out.println("----------------STATUS----------------");
+        System.out.println("Categoria : " + solicitacao.getCategoria());
+        System.out.println("Descrição : " + solicitacao.getDescricao());
         System.out.println("Status: " + solicitacao.getStatus());
+        System.out.println("----------------STATUS----------------");
     }
 
     public void receberRetornoSolicitacao (Solicitacoes solicitacao){
-        System.out.println("Retorno" + solicitacao.getRetorno());
+        System.out.println("Retorno " + solicitacao.getRetorno());
     }
 
 }
