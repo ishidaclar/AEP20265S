@@ -79,9 +79,10 @@ public class Usuário {
         System.out.println("1-Saúde");
         System.out.println("2-Educação");
         System.out.println("3-Limpeza");
-        System.out.println("4-Buracos");
+        System.out.println("4-Meio ambiente");
         System.out.println("5-Iluminação");
         System.out.println("6-Segurança escolar");
+        System.out.println("7-Policia");
 
         int respostaCategoria = scanner.nextInt();
         scanner.nextLine();
@@ -97,7 +98,7 @@ public class Usuário {
                 categoria = "Limpeza";
                 break;
             case 4:
-                categoria = "Buracos";
+                categoria = "Meio ambiente";
                 break;
             case 5:
                 categoria = "Iluminação";
@@ -105,6 +106,8 @@ public class Usuário {
             case 6:
                 categoria = "Segurança escolar";
                 break;
+            case 7:
+                categoria =  "Policia";
             default:
                 System.out.println("Opção inválida");
                 return;
